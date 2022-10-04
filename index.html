@@ -1,0 +1,43 @@
+<html>
+<head>
+<style>
+    #navbar{
+        display: flex;
+        color: #15ab96;
+        text-shadow: 5px 2px 15px #bce3df;
+        justify-content: center;
+        margin-top: 25px;}
+</style>
+</head>
+
+<body>
+<div id ="navbar">
+    <img id = "logo" src ="ideal_logo.png"  width="100px" height = "100px"  crossorigin ='anonymous'>
+    <div id ="school_info"><h1 style = "margin-top:8px;"> Ideal Academy</h1>
+        <h4 style = "margin-top:-15px; text-align: center;">Block More, Barun</h4> </div>
+</div>
+    <button onclick="genPdf()"> getpdf</button>
+  
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script>
+        function genPdf() {
+        const doc = new jsPDF();
+        html2canvas(document.getElementById("logo")).then( function (canvas) {
+           // document.body.appendChild(canvas)
+             
+            var imgdata = canvas.toDataURL('image/png',1.0)
+            doc.addImage(imgdata,'PNG', 10,10)
+        doc.save('pdf7.pdf');
+        });
+            
+        }
+
+        
+
+
+        
+    </script>
+
+</body>
+</html>
